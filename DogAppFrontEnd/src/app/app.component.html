@@ -14,23 +14,10 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link"routerLink="/dogs-list" routerLinkActive="active">List of Dogs</a>
       </li>
     </ul>
   </div>
-</nav>
-<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-  <ul>
-    <li><a routerLink="/dogs-list" routerLinkActive="active">First Component</a></li>
-    <!-- <li><a routerLink="/second-component" routerLinkActive="active">Second Component</a></li> -->
-  </ul>
 </nav>
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
