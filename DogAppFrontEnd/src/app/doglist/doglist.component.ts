@@ -19,6 +19,9 @@ export class DoglistComponent implements OnInit {
         (data: Dogs[])=>{
           console.log(data);
           this.listofDogs = data;
+        },
+        (error: any)=>{
+          console.log("An error occurred");
         }
       )
 
