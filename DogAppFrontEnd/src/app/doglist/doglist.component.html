@@ -19,6 +19,13 @@
           <td>{{item.nameofdog}}</td>
           <td>{{item.ownerfirstname}}</td>
           <td>{{item.ownerlastname}}</td>
+          <td><button type="submit" (click)="deleteDog(item.id)" style="background-color: #4CAF50;">Delete</button></td>
+          <td>
+            <!-- <button type="submit" style="background-color: #008CBA;">Edit</button> -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Edit
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
