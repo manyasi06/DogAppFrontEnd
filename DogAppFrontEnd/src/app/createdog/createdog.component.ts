@@ -20,6 +20,7 @@ export interface sumDog {
   styleUrls: ['./createdog.component.css']
 })
 export class CreatedogComponent implements OnInit {
+  MyWarn: boolean;
 
   profileForm = new FormGroup({
     breed: new FormControl(''),
@@ -31,6 +32,7 @@ export class CreatedogComponent implements OnInit {
   constructor(private dogService: DogsService, private router: Router) { }
 
   ngOnInit(): void {
+    this.MyWarn = false;
   }
 
 
