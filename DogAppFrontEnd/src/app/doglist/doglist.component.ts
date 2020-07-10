@@ -54,14 +54,16 @@ export class DoglistComponent implements OnInit {
 
   deleteDog(id: number): void{
     console.log("This current id: " + id);
+    const item = this.listofDogs.find( x => x.id === id);
+    console.log("This is the index: " + item);
     this.dogServ.deleteDog(id).subscribe(
-      (response: Response)=>{
-      console.log(response.status);
-     },(error: any)=>{
-       console.log("Error during deletion: " + error);
+      (response: any)=>{
+      console.log(response);
+     },(error: Error)=>{
+       console.log("Error during deletion: " + error.message);
      }
     )
-
+    this.listofDogs.splice(this.listofDogs.indexOf(item), 1);
   }
 
   open(contentProfileForm) {

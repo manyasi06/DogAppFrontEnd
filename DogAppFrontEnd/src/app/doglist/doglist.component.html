@@ -21,7 +21,6 @@
           <td>{{item.ownerlastname}}</td>
           <td><button type="submit" (click)="deleteDog(item.id)" class="btn btn-primary" style="background-color: #4CAF50;">Delete</button></td>
           <td>
-            <!-- <button type="submit" style="background-color: #008CBA;">Edit</button> -->
             <button (click)="openForEdit(item)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProf">
               Edit
             </button>
@@ -76,8 +75,4 @@
   </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(contentProfileForm)">Launch demo modal</button>
 
-<hr>
-
-<pre>{{ closeResult }}</pre>
