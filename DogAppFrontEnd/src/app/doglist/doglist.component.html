@@ -19,10 +19,9 @@
           <td>{{item.nameofdog}}</td>
           <td>{{item.ownerfirstname}}</td>
           <td>{{item.ownerlastname}}</td>
-          <td><button type="submit" (click)="deleteDog(item.id)" style="background-color: #4CAF50;">Delete</button></td>
+          <td><button type="submit" (click)="deleteDog(item.id)" class="btn btn-primary" style="background-color: #4CAF50;">Delete</button></td>
           <td>
-            <!-- <button type="submit" style="background-color: #008CBA;">Edit</button> -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button (click)="openForEdit(item)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProf">
               Edit
             </button>
           </td>
@@ -31,10 +30,49 @@
     </table>
   </div>
 </div>
-
-
 <br>
 
 
+
+
+
+
+
+
+<ng-template #editProf let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" #formBody>
+    <form>
+      <div class="form-group">
+        <label for="breed">Id</label>
+        <input type="text" id="id" class="form-control" value="{{id}}" disabled>
+      </div>
+        <div class="form-group">
+        <label for="breed">Breed of Dog</label>
+        <input type="text" id="breed" class="form-control" value="{{breed}}">
+      </div>
+      <div class="form-group">
+        <label for="nameofdog">Name of Dog</label>
+        <input type="text" id="nameofdog" class="form-control" value="{{nameofdog}}">
+      </div>
+      <div class="form-group">
+        <label for="ownerfirstname">First Name of Owner</label>
+        <input type="text" id="ownerfirstname" class="form-control" value="{{ownerfirstname}}">
+      </div>
+      <div class="form-group">
+        <label for="ownerlastname">last Name of Owner</label>
+        <input type="text" id="ownerlastname" class="form-control" value="{{ownerlastname}}">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
 
 

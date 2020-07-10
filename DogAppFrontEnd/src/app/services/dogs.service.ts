@@ -2,6 +2,7 @@ import { ConfigService } from './config.service';
 import { Dogs } from './../models/Dogs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,8 @@ export class DogsService {
       }),
       body:{
         id: id
-      }
+      },
+      responseType: 'text' as 'json',
     }
     return this.http.delete(this.url +"/" + id, options);
   }
