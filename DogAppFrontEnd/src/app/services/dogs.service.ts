@@ -37,5 +37,9 @@ export class DogsService {
     return this.http.delete(this.url +"/" + id, options);
   }
 
+  editDog(someDog: Dogs){
+    return this.http.put<Dogs>(this.url,someDog);
+  }
+
 
 }

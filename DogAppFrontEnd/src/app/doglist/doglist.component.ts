@@ -25,6 +25,7 @@ export class DoglistComponent implements OnInit {
   @Input('nameofdog') nameofdog:string;
   @Input('ownerfirstname') ownerfirstname: string;
   @Input('ownerlastname') ownerlastname: string;
+  public updatDog : Dogs;
 
 
 
@@ -48,6 +49,15 @@ export class DoglistComponent implements OnInit {
         ownerfirstName: [''],
         ownerlastname: ['']
       })
+
+      this.updatDog = {
+        id: -1,
+        breed: '',
+        nameofdog: '',
+        ownerfirstname: ' ',
+        ownerlastname: ' '
+      }
+
 
   }
 
@@ -83,10 +93,26 @@ export class DoglistComponent implements OnInit {
     this.ownerfirstname = item.ownerfirstname;
     this.ownerlastname = item.ownerlastname;
 
+    console.log("My id: " + this.id)
+
+
+
     this.modalService.open(this.defCtPfForm,
       {ariaLabelledBy: 'modal-basic-title'}
       ).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
+      console.log(this.updatDog)
+      this.updatDog.id = this.id;
+      this.updatDog.breed = this.breed;
+      this.updatDog.nameofdog = this.nameofdog;
+      this.updatDog.ownerfirstname = this.ownerfirstname;
+      this.updatDog.ownerlastname = this.ownerlastname;
+
+      console.log("My payload: " + JSON.stringify(this.updatDog));
+      this.dogServ.editDog(this.updatDog).subscribe((response: any)=>{
+          console.log(response);
+      },(error: any)=>{console.log(error)});
+
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
