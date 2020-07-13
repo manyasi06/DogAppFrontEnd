@@ -51,27 +51,44 @@
     <form>
       <div class="form-group">
         <label for="breed">Id</label>
-        <input type="text" id="id" class="form-control" value="{{id}}" >
+        <input type="text"
+        id="id"
+        class="form-control"
+        value="{{id}}"
+        name="id"
+        [(ngModel)]="id"  >
       </div>
-        <div class="form-group">
+      <div class="form-group">
         <label for="breed">Breed of Dog</label>
-        <input type="text" id="breed" class="form-control" value="{{breed}}" [(ngModel)]="breed">
+        <input type="text"
+        id="breed"
+        class="form-control"
+        value="{{breed}}"
+        [(ngModel)]="breed"
+        name="breed">
       </div>
       <div class="form-group">
         <label for="nameofdog">Name of Dog</label>
-        <input type="text" id="nameofdog" class="form-control" value="{{nameofdog}}" [(ngModel)]="nameofdog">
+        <input type="text"
+        id="nameofdog"
+        class="form-control"
+        value="{{nameofdog}}"
+        [(ngModel)]="nameofdog"
+        name="nameofdog">
       </div>
-      <div class="form-group">
+       <div class="form-group">
         <label for="ownerfirstname">First Name of Owner</label>
-        <input type="text" 
-        id="ownerfirstname" 
-        class="form-control" 
-        value="{{ownerfirstname}}" 
-        [(ngModel)]="ownerfirstname">
+        <input type="text"
+        id="ownerfirstname"
+        class="form-control"
+        value="{{ownerfirstname}}"
+        name="owernfirstname"
+        [(ngModel)]="ownerfirstname" >
       </div>
       <div class="form-group">
         <label for="ownerlastname">last Name of Owner</label>
-        <input type="text" id="ownerlastname" class="form-control" value="{{ownerlastname}}" [(ngModel)]="ownerlastname">
+        <input type="text" id="ownerlastname" class="form-control"
+        value="{{ownerlastname}}" [(ngModel)]="ownerlastname" name="ownerlastname">
       </div>
     </form>
   </div>

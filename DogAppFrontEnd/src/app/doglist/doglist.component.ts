@@ -108,7 +108,6 @@ export class DoglistComponent implements OnInit {
       this.updatDog.nameofdog = this.nameofdog;
       this.updatDog.ownerfirstname = this.ownerfirstname;
       this.updatDog.ownerlastname = this.ownerlastname;
-
       console.log("My payload: " + JSON.stringify(this.updatDog));
       this.dogServ.editDog(this.updatDog).subscribe((response: any)=>{
           console.log(response);
@@ -117,9 +116,6 @@ export class DoglistComponent implements OnInit {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
-
-
-
 
   }
 
