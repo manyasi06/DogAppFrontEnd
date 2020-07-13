@@ -26,6 +26,7 @@ export class DoglistComponent implements OnInit {
   @Input('ownerfirstname') ownerfirstname: string;
   @Input('ownerlastname') ownerlastname: string;
   public updatDog : Dogs;
+  public testVal: string;
 
 
 

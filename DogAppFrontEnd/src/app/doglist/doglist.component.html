@@ -39,6 +39,7 @@
 
 
 
+
 <ng-template #editProf let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
@@ -54,19 +55,23 @@
       </div>
         <div class="form-group">
         <label for="breed">Breed of Dog</label>
-        <input type="text" id="breed" class="form-control" value="{{breed}}">
+        <input type="text" id="breed" class="form-control" value="{{breed}}" [(ngModel)]="breed">
       </div>
       <div class="form-group">
         <label for="nameofdog">Name of Dog</label>
-        <input type="text" id="nameofdog" class="form-control" value="{{nameofdog}}">
+        <input type="text" id="nameofdog" class="form-control" value="{{nameofdog}}" [(ngModel)]="nameofdog">
       </div>
       <div class="form-group">
         <label for="ownerfirstname">First Name of Owner</label>
-        <input type="text" id="ownerfirstname" class="form-control" value="{{ownerfirstname}}">
+        <input type="text" 
+        id="ownerfirstname" 
+        class="form-control" 
+        value="{{ownerfirstname}}" 
+        [(ngModel)]="ownerfirstname">
       </div>
       <div class="form-group">
         <label for="ownerlastname">last Name of Owner</label>
-        <input type="text" id="ownerlastname" class="form-control" value="{{ownerlastname}}">
+        <input type="text" id="ownerlastname" class="form-control" value="{{ownerlastname}}" [(ngModel)]="ownerlastname">
       </div>
     </form>
   </div>
