@@ -10,9 +10,11 @@ import { Observable } from 'rxjs';
 export class DogsService {
 
   url: string;
+  urlPics: string;
 
   constructor(private http: HttpClient, private configService: ConfigService) {
     this.url = "api/dogs";
+    this.urlPics ="api/photos"
    }
 
 
@@ -40,6 +42,14 @@ export class DogsService {
 
   editDog(someDog: Dogs){
     return this.http.put<Dogs>(this.url,someDog);
+  }
+
+  uploadDataPics(formData){
+    return this.http.post<any>(this.urlPics + "/add",formData,{
+      reportProgress: true,
+      observe: 'response',
+      responseType: 'text' as 'json'
+    });
   }
 
 
