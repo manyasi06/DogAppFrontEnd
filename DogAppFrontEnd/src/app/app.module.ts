@@ -1,3 +1,4 @@
+import { UploadDogComponent } from './upload-dog/upload-dog.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,7 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     DoglistComponent,
     CreatedogComponent,
-    AlertComponent
+    AlertComponent,
+    UploadDogComponent
+
   ],
   imports: [
     BrowserModule,

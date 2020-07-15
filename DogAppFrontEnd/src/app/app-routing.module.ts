@@ -1,3 +1,4 @@
+import { UploadDogComponent } from './upload-dog/upload-dog.component';
 import { CreatedogComponent } from './createdog/createdog.component';
 import { DoglistComponent } from './doglist/doglist.component';
 import { NgModule, Component } from '@angular/core';
@@ -5,7 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: 'dogs-list', component: DoglistComponent},
-  {path: 'createdog', component: CreatedogComponent}
+  {path: 'createdog', component: CreatedogComponent},
+  {path:'add-image', component: UploadDogComponent}
 ];
 
 @NgModule({
