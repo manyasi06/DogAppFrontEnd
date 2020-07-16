@@ -1,4 +1,4 @@
-import { ConfigService } from './config.service';
+
 import { Dogs } from './../models/Dogs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
@@ -12,7 +12,7 @@ export class DogsService {
   url: string;
   urlPics: string;
 
-  constructor(private http: HttpClient, private configService: ConfigService) {
+  constructor(private http: HttpClient) {
     this.url = "api/dogs";
     this.urlPics ="api/photos"
    }
