@@ -10,6 +10,7 @@ import { DoglistComponent } from './doglist/doglist.component';
 import { CreatedogComponent } from './createdog/createdog.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DoglistComponent,
     CreatedogComponent,
     AlertComponent,
-    UploadDogComponent
+    UploadDogComponent,
+    LoginPageComponent
 
   ],
   imports: [

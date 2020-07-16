@@ -1,3 +1,4 @@
+import { LoginPageComponent } from './login-page/login-page.component';
 import { UploadDogComponent } from './upload-dog/upload-dog.component';
 import { CreatedogComponent } from './createdog/createdog.component';
 import { DoglistComponent } from './doglist/doglist.component';
