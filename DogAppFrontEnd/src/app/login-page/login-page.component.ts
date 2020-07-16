@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(form: NgForm):void{
-    console.log(form.value)
+    console.log("My form values" + form.value)
   }
 
 }
