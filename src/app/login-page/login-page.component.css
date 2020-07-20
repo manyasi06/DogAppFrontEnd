@@ -1,9 +1,4 @@
-body{
-  padding-top: 5%;
-  border-style: solid;
-  width: 50%;
-  margin: 0 auto;
-}
+
 form{
   width:50%;
   margin:0 auto;
@@ -12,4 +7,15 @@ form{
 h3{
   width: 50%;
   margin:0 auto;
+}
+
+#form-id{
+  border-style: solid;
+  padding-bottom: 10%;
+  padding-top: 2%;
+}
+
+
+#div-one{
+  padding-top: 2%;
 }
