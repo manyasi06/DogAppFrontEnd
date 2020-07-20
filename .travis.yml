@@ -23,4 +23,5 @@ install:
   - npm install
 
 script:
-  - npm run test --watch=false --progress=false --browsers=ChromeHeadless --code-coverage --source-map=false
+  - npm run test-headless
+  #- npm run test --watch=false --progress=false --browsers=ChromeHeadless --code-coverage --source-map=false
