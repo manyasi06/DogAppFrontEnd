@@ -6,6 +6,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
+  {path: 'login-page', component: LoginPageComponent},
   {path: 'dogs-list', component: DoglistComponent},
   {path: 'createdog', component: CreatedogComponent},
   {path:'add-image', component: UploadDogComponent}

@@ -7,8 +7,6 @@
           <th scope="col">Breed</th>
           <th scope="col">Id</th>
           <th scope="col">Name of Dog</th>
-          <th scope="col">Owner first name</th>
-          <th scope="col">Owner last name</th>
 
         </tr>
       </thead>
@@ -17,8 +15,6 @@
           <td>{{item.breed}}</td>
           <td>{{item.id}}</td>
           <td>{{item.nameofdog}}</td>
-          <td>{{item.ownerfirstname}}</td>
-          <td>{{item.ownerlastname}}</td>
           <td><button type="submit" (click)="deleteDog(item.id)" class="btn btn-primary" style="background-color: #4CAF50;">Delete</button></td>
           <td>
             <button (click)="openForEdit(item)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProf">
@@ -76,20 +72,7 @@
         [(ngModel)]="nameofdog"
         name="nameofdog">
       </div>
-       <div class="form-group">
-        <label for="ownerfirstname">First Name of Owner</label>
-        <input type="text"
-        id="ownerfirstname"
-        class="form-control"
-        value="{{ownerfirstname}}"
-        name="owernfirstname"
-        [(ngModel)]="ownerfirstname" >
-      </div>
-      <div class="form-group">
-        <label for="ownerlastname">last Name of Owner</label>
-        <input type="text" id="ownerlastname" class="form-control"
-        value="{{ownerlastname}}" [(ngModel)]="ownerlastname" name="ownerlastname">
-      </div>
+
     </form>
   </div>
   <div class="modal-footer">

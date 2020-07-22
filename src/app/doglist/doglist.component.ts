@@ -46,17 +46,13 @@ export class DoglistComponent implements OnInit {
 
       this.contentProfileForm = this.fb.group({
         breed: [''],
-        nameofdog: [''],
-        ownerfirstName: [''],
-        ownerlastname: ['']
+        nameofdog: ['']
       })
 
       this.updatDog = {
         id: -1,
         breed: '',
-        nameofdog: '',
-        ownerfirstname: ' ',
-        ownerlastname: ' '
+        nameofdog: ''
       }
 
 
@@ -91,8 +87,7 @@ export class DoglistComponent implements OnInit {
     this.id = item.id;
     this.breed = item.breed;
     this.nameofdog = item.nameofdog;
-    this.ownerfirstname = item.ownerfirstname;
-    this.ownerlastname = item.ownerlastname;
+
 
     console.log("My id: " + this.id)
 
@@ -106,8 +101,6 @@ export class DoglistComponent implements OnInit {
       this.updatDog.id = this.id;
       this.updatDog.breed = this.breed;
       this.updatDog.nameofdog = this.nameofdog;
-      this.updatDog.ownerfirstname = this.ownerfirstname;
-      this.updatDog.ownerlastname = this.ownerlastname;
       console.log("My payload: " + JSON.stringify(this.updatDog));
       this.dogServ.editDog(this.updatDog).subscribe((response: any)=>{
           console.log(response);
