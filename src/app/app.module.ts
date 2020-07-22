@@ -11,6 +11,7 @@ import { CreatedogComponent } from './createdog/createdog.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { PersonProfileComponent } from './person-profile/person-profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     CreatedogComponent,
     AlertComponent,
     UploadDogComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PersonProfileComponent
 
   ],
   imports: [
