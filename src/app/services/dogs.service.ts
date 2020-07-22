@@ -52,5 +52,20 @@ export class DogsService {
     });
   }
 
+  getDogById(id: number): Observable<Dogs>{
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      body:{
+        id: id
+      },
+      responseType: 'text' as 'json',
+      observe: "response" as 'body'
+    }
+
+    return this.http.get<Dogs>(this.url + '/' + id, options);
+  }
+
 
 }
