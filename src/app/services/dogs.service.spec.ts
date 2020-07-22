@@ -50,6 +50,27 @@ describe('DogsService', () => {
 
   it('Should get id 1', () => {
     //Todo setup get by id
+    mockDogService.getDogById(1).subscribe(dog => {
+      expect(dog).toEqual(dogStub[0]);
+    })
+  })
+
+  it('Should edit the dog 1', ()=>{
+    let dogedit: Dogs = {
+      id: 1,
+      breed: 'Giant Schnauzer',
+      nameofdog: 'Leo Messi'
+    }
+
+    mockDogService.editDog(dogedit).subscribe()
+
+
+    //expect to  get the dog ediit
+    mockDogService.getDogById(1).subscribe(
+      (dog : Dogs) =>{
+        expect(dog).toEqual(dogedit);
+      }
+    )
   })
 
 
