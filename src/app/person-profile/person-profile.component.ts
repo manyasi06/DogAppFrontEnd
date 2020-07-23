@@ -13,8 +13,11 @@ export class PersonProfileComponent implements OnInit {
 
 
   personList: Person[];
+  logStatus: boolean;
 
-  constructor(private personService: PersonsService) { }
+  constructor(private personService: PersonsService) {
+    this.logStatus = false;
+   }
 
   ngOnInit(): void {
     this.personService.getAllPersons().subscribe(
