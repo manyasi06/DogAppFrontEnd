@@ -45,7 +45,17 @@ describe('DogsService', () => {
   it('Should get all dogs',()=>{
     mockDogService.getAllDogs().subscribe(dogs =>{
       expect(dogs).toBeTruthy('No dogs returned');
+
+      expect(dogs.length).toBe(2,"Incorrect number of dogs");
     })
+
+    const req = httpTestingContrller.expectOne('api/dogs', "This is not finding the correct route");
+
+    expect(req.request.method).toEqual("GET","This not calling a get method");
+
+    req.flush(dogStub);
+
+    httpTestingContrller.verify();
   });
 
   it('Should get id 1', () => {

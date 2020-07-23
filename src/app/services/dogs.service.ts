@@ -18,8 +18,8 @@ export class DogsService {
    }
 
 
-  getAllDogs(){
-      return this.http.get(this.url);
+  getAllDogs(): Observable<Dogs[]>{
+      return this.http.get<Dogs[]>(this.url);
   }
 
   createDog(someDog: any){
