@@ -72,7 +72,10 @@ describe('DogsService', () => {
       nameofdog: 'Leo Messi'
     }
 
-    mockDogService.editDog(dogedit).subscribe()
+    mockDogService.editDog(dogedit).subscribe((resp: Response)=>{
+
+      expect(resp.status).toEqual(202);
+    })
 
 
     //expect to  get the dog ediit

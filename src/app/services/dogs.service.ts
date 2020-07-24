@@ -1,7 +1,7 @@
 
 import { Dogs } from './../models/Dogs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class DogsService {
     return this.http.post(this.url,someDog)
   }
 
-  deleteDog(id: number):any {
+  deleteDog(id: number) {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -37,11 +37,11 @@ export class DogsService {
       responseType: 'text' as 'json',
       observe: "response" as 'body'
     }
-    return this.http.delete<any>(this.url +"/" + id, options,);
+    return this.http.delete(this.url +"/" + id, options,);
   }
 
-  editDog(someDog: Dogs){
-    return this.http.put<Dogs>(this.url,someDog);
+  editDog(someDog: Dogs): any{
+    return this.http.put<any>(this.url,someDog);
   }
 
   uploadDataPics(formData){
