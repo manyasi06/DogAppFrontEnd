@@ -1,7 +1,7 @@
 import { Person } from './../models/Person';
 import { PersonsService } from './../services/persons.service';
 import { Component, OnInit } from '@angular/core';
-import { pipe } from 'rxjs';
+import { faker } from '../../../node_modules/faker'
 
 
 @Component({
@@ -13,10 +13,12 @@ export class PersonProfileComponent implements OnInit {
 
 
   personList: Person[];
+  profilePhoto;
   logStatus: boolean;
 
-  constructor(private personService: PersonsService) {
+  constructor(private personService: PersonsService, private faker: faker) {
     this.logStatus = false;
+
    }
 
   ngOnInit(): void {
