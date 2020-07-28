@@ -1,3 +1,4 @@
+import { PersonServiceResolve } from './services/personserviceresolve';
 import { UploadDogComponent } from './upload-dog/upload-dog.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,7 +35,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
     NgbModule,
     LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR})
   ],
-  providers: [],
+  providers: [PersonServiceResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

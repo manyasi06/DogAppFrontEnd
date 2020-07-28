@@ -8,7 +8,9 @@
     "test": "ng test",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "filldata": "node ./server/filldata.js > ./server/data.json",
+    "server": "json-server --watch ./server/data.json"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.2.2",
     "bootstrap": "^4.5.0",
     "core-js": "^2.5.4",
+    "faker": "^4.1.0",
     "jquery": "^3.5.1",
     "ngx-logger": "^4.1.9",
     "popper": "^1.0.1",

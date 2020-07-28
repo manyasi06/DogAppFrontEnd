@@ -1,30 +1,36 @@
-import { Person } from './../models/Person';
-import { PersonsService } from './../services/persons.service';
-import { Component, OnInit } from '@angular/core';
-import { pipe } from 'rxjs';
+import { DogsService } from "./../services/dogs.service";
+import { Dogs } from "./../models/Dogs";
+import { DummyPersonsService } from "./../services/dummy-persons.service";
+import { Person } from "./../models/Person";
+import { pipe } from "rxjs";
 
+import { Component, OnInit } from "@angular/core";
+import { map } from "rxjs/operators";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-person-profile',
-  templateUrl: './person-profile.component.html',
-  styleUrls: ['./person-profile.component.css']
+  selector: "app-person-profile",
+  templateUrl: "./person-profile.component.html",
+  styleUrls: ["./person-profile.component.css"],
 })
 export class PersonProfileComponent implements OnInit {
-
-
-  personList: Person[];
+  personInfo: Person = new Person();
+  profilePhoto;
   logStatus: boolean;
+  friendListofDogs: Array<Dogs>;
 
-  constructor(private personService: PersonsService) {
+  constructor(private route: ActivatedRoute) {
     this.logStatus = false;
-   }
-
-  ngOnInit(): void {
-    this.personService.getAllPersons().subscribe(
-      (data: Person[]) => {
-        this.personList = data;
-      }
-    )
   }
 
+  ngOnInit(): void {
+    /*
+    this.personService.getById(2).subscribe((Response: Person) => {
+      this.personInfo = Response;
+
+    });
+    */
+
+    this.personInfo = this.route.snapshot.data['person'];
+  }
 }
