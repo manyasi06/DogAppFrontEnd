@@ -1,21 +1,21 @@
-
-
-<div class="container">
-
+<div class="container" id="profile_border">
   <div class="row">
-    <div class="col-sm">
-
+    <div class="col align-self-start">
+      <img src="../../assets/images/GiantSchnauzerImage.jfif" alt="" />
+      <h1>{{ personInfo.dogs[0].nameofdog  }}</h1>
     </div>
-    <div>
-      {{profilePhoto}}
+    <div class="col align-self-center">
+      Parks Visited
     </div>
   </div>
-
-  <div>
-    Dog friends
+  <div class="row">
+    <div class="col-sm align-self-center">
+      <ul>
+        <li *ngFor="let val of friendListofDogs">
+          {{val.nameofdog}}
+        </li>
+      </ul>
+    </div>
   </div>
-  <div>
-    Parks Visited
-  </div>
-
 </div>
+
