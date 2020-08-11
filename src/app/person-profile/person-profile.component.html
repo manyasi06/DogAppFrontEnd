@@ -12,11 +12,13 @@
     <div class="col-sm align-self-center">
       <ul>
         <h2>Friend List: </h2>
+
         <ng-container id="friendlist" *ngFor="let val of friendListofDogs ; let i=index">
           <li *ngIf="i<11">
             Owner: {{val.firstname}} {{val.lastname}}
           </li>
         </ng-container>
+
 
       </ul>
     </div>
