@@ -1,5 +1,4 @@
 import { DummyPersonsService } from './../services/dummy-persons.service';
-import { Dogs } from "./../models/Dogs";
 import { Person } from "./../models/Person";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +12,7 @@ export class PersonProfileComponent implements OnInit {
   personInfo: Person = new Person();
   profilePhoto;
   logStatus: boolean;
-  friendListofDogs: Array<Person>;
+  friendListofDogs: Array<Person> = new Array<Person>();
 
   constructor(private route: ActivatedRoute, private dogFriends: DummyPersonsService) {
     this.logStatus = false;
@@ -21,17 +20,12 @@ export class PersonProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.personInfo = this.route.snapshot.data['person'];
-    this.getFriends();
+
+    this.dogFriends.getAll().subscribe( (resp)=>{
+        resp.forEach((val)=>{
+          this.friendListofDogs.push(val);
+        })
+    })
   }
 
-
-
-
-  getFriends(): void{
-    this.dogFriends.getAll().subscribe(
-      (val: Person[])=> {
-        this.friendListofDogs = val;
-      }
-    )
-  }
 }

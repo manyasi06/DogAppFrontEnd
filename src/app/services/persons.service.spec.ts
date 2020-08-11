@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Person } from './../models/Person';
 import { TestBed } from '@angular/core/testing';
 
@@ -5,9 +6,8 @@ import { PersonsService } from './persons.service';
 
 
 describe('PersonsService', () => {
-  let service: PersonsService;
+  let personService: PersonsService;
 
-  /*
   const testPersons: Array<Person> = [
     { "id": 1,
      "firstname": "Bryan",
@@ -32,12 +32,16 @@ describe('PersonsService', () => {
   ];
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PersonsService);
+    TestBed.configureTestingModule({
+      imports : [HttpClientTestingModule]
+    });
+    personService = TestBed.inject(PersonsService);
   });
 
+  /*
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(personService).toBeTruthy();
   });
   */
+
 });
