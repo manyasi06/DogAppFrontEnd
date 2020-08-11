@@ -9,6 +9,8 @@ import {
   ComponentFixture,
   TestBed,
   inject,
+  fakeAsync,
+  tick,
 } from "@angular/core/testing";
 import { PersonProfileComponent } from "./person-profile.component";
 import { NO_ERRORS_SCHEMA, DebugElement } from "@angular/core";
@@ -116,10 +118,13 @@ describe("PersonProfileComponent", () => {
           useValue: { snapshot: { data: PersonStub[0] } },
         }
       ],
-    })
-    // fixture = TestBed.createComponent(PersonProfileComponent);
-    // component = fixture.componentInstance;
-    // el = fixture.debugElement;
+    }).compileComponents()
+      .then(()=>{
+        fixture = TestBed.createComponent(PersonProfileComponent);
+        component = fixture.componentInstance;
+        el = fixture.debugElement;
+      })
+
     // mockPersonService = TestBed.inject(DummyPersonsService);
   }));
 
@@ -136,5 +141,22 @@ describe("PersonProfileComponent", () => {
     }
   ));
 
-  it("Should create a list of dog friends", () => {});
+  it("Should be a true component", () => {
+    expect(component).toBeTruthy();
+  });
+
+  it("Should have a list that is displayed in the DOM",fakeAsync(()=>{
+    component.personInfo = PersonStub[0];
+    component.personInfoDog = PersonStub[0].dogs[0];
+    expect(component.personInfo.dogs).toBeTruthy();
+    component.friendListofDogs = PersonStub;
+    console.log(component.friendListofDogs)
+    expect(component.friendListofDogs).toBeTruthy();
+    component.ngOnInit();
+    tick(5000);
+   fixture.detectChanges();
+
+  }));
+
+
 });

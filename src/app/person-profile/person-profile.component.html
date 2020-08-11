@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col align-self-start" style="outline-style: outset;">
       <img src="../../assets/images/GiantSchnauzerImage.jfif" alt="" />
-      <h1>{{ personInfo.dogs[0].nameofdog  }}</h1>
+      <h1>{{ personInfoDog.nameofdog}}</h1>
     </div>
     <div class="col align-self-center">
       Parks Visited
@@ -12,11 +12,13 @@
     <div class="col-sm align-self-center">
       <ul>
         <h2>Friend List: </h2>
-        <li id="friendlist" *ngFor="let val of friendListofDogs | slice:0:10; let i=index">
-          Owner: {{val.firstname}} {{val.lastname}}
-        </li>
+        <ng-container id="friendlist" *ngFor="let val of friendListofDogs ; let i=index">
+          <li *ngIf="i<11">
+            Owner: {{val.firstname}} {{val.lastname}}
+          </li>
+        </ng-container>
+
       </ul>
     </div>
   </div>
 </div>
-
