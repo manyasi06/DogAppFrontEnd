@@ -1,8 +1,9 @@
-import { DummyPersonsService } from './../services/dummy-persons.service';
+import { Dogs } from './../models/Dogs';
+import { DummyPersonsService } from "./../services/dummy-persons.service";
 import { Person } from "./../models/Person";
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router, Data } from '@angular/router';
-import { PartialObserver } from 'rxjs';
+import { ActivatedRoute, Router, Data } from "@angular/router";
+
 
 @Component({
   selector: "app-person-profile",
@@ -16,21 +17,22 @@ export class PersonProfileComponent implements OnInit {
   logStatus: boolean;
   friendListofDogs: Array<Person> = new Array<Person>();
 
-  constructor(private route: ActivatedRoute, private dogFriends: DummyPersonsService, private router: Router) {
+  constructor(
+    private route: ActivatedRoute,
+    private dogFriends: DummyPersonsService,
+    private router: Router
+  ) {
     this.logStatus = false;
   }
 
   ngOnInit(): void {
-
     //this.personInfo = this.route.snapshot.data['person'];
-    this.dogFriends.getById(3).subscribe(
-      (val: Person)=>{
-        this.personInfo = val;
+    this.dogFriends.getById(3).subscribe((val: Person) => {
+      this.personInfo = val;
 
-        this.personInfoDog = this.personInfo.dogs[0];
-        console.log(this.personInfo.dogs[0])
-      }
-    )
+      this.personInfoDog = this.personInfo.dogs[0];
+      console.log(this.personInfo.dogs[0]);
+    });
 
     // this.route.data.subscribe(
     //   (data: Data) => {
@@ -40,14 +42,14 @@ export class PersonProfileComponent implements OnInit {
     this.getFriends();
   }
 
+  getFriends(){
+        this.dogFriends.getAll().subscribe( (resp)=>{
+          resp.forEach((val)=>{
+           this.friendListofDogs.push(val);
+          })
+       })
 
-
-
-    this.dogFriends.getAll().subscribe( (resp)=>{
-        resp.forEach((val)=>{
-          this.friendListofDogs.push(val);
-        })
-    })
   }
+
 
 }
