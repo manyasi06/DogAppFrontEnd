@@ -1,4 +1,6 @@
-import { DogsService } from "./../services/dogs.service";
+import { Observable, of } from  'rxjs';
+
+
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { Person } from "./../models/Person";
@@ -9,13 +11,14 @@ import {
   ComponentFixture,
   TestBed,
   inject,
+  fakeAsync,
+  tick,
 } from "@angular/core/testing";
 import { PersonProfileComponent } from "./person-profile.component";
 import { NO_ERRORS_SCHEMA, DebugElement } from "@angular/core";
 import { ActivatedRoute, ActivatedRouteSnapshot } from "@angular/router";
-import { BrowserDynamicTestingModule } from "@angular/platform-browser-dynamic/testing";
 import { Dogs } from "../models/Dogs";
-import { Pipe, PipeTransform } from '@angular/core'
+
 
 const dogStub: Array<Dogs> = [
   { id: 2, breed: "Chorkie", nameofdog: "Tomasa" },
@@ -100,41 +103,47 @@ describe("PersonProfileComponent", () => {
   let el: DebugElement;
 
   beforeEach(async(() => {
-    mockPersonService = jasmine.createSpyObj(["getAll"]);
+    //mockPersonService = jasmine.createSpyObj('DummyPersonService',["getAll"]);
+
 
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       imports: [
         RouterTestingModule.withRoutes([]),
-        HttpClientTestingModule,
-        BrowserDynamicTestingModule
+        HttpClientTestingModule
       ],
       providers: [
         PersonProfileComponent,
         {
           provide: ActivatedRoute,
           useValue: { snapshot: { data: PersonStub[0] } },
+        },
+        {
+          provide: DummyPersonsService,
+          useValue : {getAll: ()=>{ subscribe: ()=>{
+            PersonStub
+          }}}
         }
       ],
-    })
-    // fixture = TestBed.createComponent(PersonProfileComponent);
-    // component = fixture.componentInstance;
-    // el = fixture.debugElement;
-    // mockPersonService = TestBed.inject(DummyPersonsService);
+    }).compileComponents().then(()=>{
+      fixture = TestBed.createComponent(PersonProfileComponent);
+      component = fixture.componentInstance;
+      el = fixture.debugElement;
+      mockPersonService = TestBed.inject(DummyPersonsService);
+    });
+
+
   }));
 
-  it("should create a comoponent", inject(
-    [PersonProfileComponent],
-    (personProfComp: PersonProfileComponent) => {
-      spyOn(console, "log");
+  it("Should create the comoponent", ()=>{
+    expect(component).toBeTruthy();
+  });
 
-      expect(console.log).not.toHaveBeenCalled();
 
-      //check some more assertions
-      personProfComp.ngOnInit();
-      expect(personProfComp).toBeTruthy("The component was not initialized!");
-    }
-  ));
 
-  it("Should create a list of dog friends", () => {});
+  it("The name of the first user should be Tomasa", ()=>{
+    pending();
+  })
+
+
 });
