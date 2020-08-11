@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { CommonModule } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     NgbModule,
     LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR})
