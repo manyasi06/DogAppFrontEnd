@@ -1,15 +1,18 @@
 <div class="container" id="profile_border">
   <div class="row">
-    <div class="col align-self-start" style="outline-style: outset;">
+    <div class="col-4 align-self-start" style="outline-style: outset;">
       <img src="../../assets/images/GiantSchnauzerImage.jfif" alt="" />
-      <h1>{{ personInfoDog.nameofdog}}</h1>
+      <h1 *ngIf="personInfoDog">{{ personInfoDog.nameofdog }}</h1>
     </div>
-    <div class="col align-self-center">
+    <div class="col-8 align-self-center">
       Parks Visited
     </div>
   </div>
   <div class="row">
-    <div class="col-sm align-self-center">
+    <div class="col-sm-4 bg-primary">
+      <app-tab-for-info></app-tab-for-info>
+    </div>
+    <div class="col-sm-4 align-self-center">
       <ul>
         <h2>Friend List: </h2>
 
