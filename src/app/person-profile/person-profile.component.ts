@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs';
 import { Dogs } from './../models/Dogs';
 import { DummyPersonsService } from "./../services/dummy-persons.service";
 import { Person } from "./../models/Person";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router, Data } from "@angular/router";
+
 
 
 @Component({
@@ -11,7 +13,7 @@ import { ActivatedRoute, Router, Data } from "@angular/router";
   styleUrls: ["./person-profile.component.css"],
 })
 export class PersonProfileComponent implements OnInit {
-  personInfo: Person = new Person();
+  personInfo$: Person;
   personInfoDog: Dogs;
   profilePhoto;
   logStatus: boolean;
@@ -28,10 +30,10 @@ export class PersonProfileComponent implements OnInit {
   ngOnInit(): void {
     //this.personInfo = this.route.snapshot.data['person'];
     this.dogFriends.getById(3).subscribe((val: Person) => {
-      this.personInfo = val;
+      this.personInfo$ = val;
 
-      this.personInfoDog = this.personInfo.dogs[0];
-      console.log(this.personInfo.dogs[0]);
+      this.personInfoDog = this.personInfo$.dogs[0];
+      //console.log(this.personInfo$.dogs[0]);
     });
 
     // this.route.data.subscribe(

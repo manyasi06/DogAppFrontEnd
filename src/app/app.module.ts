@@ -1,3 +1,4 @@
+import { TabForInfoComponent } from './tab-for-info/tab-for-info.component';
 import { PersonServiceResolve } from './services/personserviceresolve';
 import { UploadDogComponent } from './upload-dog/upload-dog.component';
 import { AlertComponent } from './shared/alert/alert.component';
@@ -16,6 +17,7 @@ import { PersonProfileComponent } from './person-profile/person-profile.componen
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { CommonModule } from '@angular/common'
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { CommonModule } from '@angular/common'
     AlertComponent,
     UploadDogComponent,
     LoginPageComponent,
-    PersonProfileComponent
+    PersonProfileComponent,
+    TabForInfoComponent
 
   ],
   imports: [
