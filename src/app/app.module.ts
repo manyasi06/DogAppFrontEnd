@@ -15,8 +15,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PersonProfileComponent } from './person-profile/person-profile.component';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
-import { CommonModule } from '@angular/common'
-
+import { CommonModule } from '@angular/common';
+import { PictureModalComponent } from './picture-modal/picture-modal.component';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -27,8 +34,9 @@ import { CommonModule } from '@angular/common'
     UploadDogComponent,
     LoginPageComponent,
     PersonProfileComponent,
-    TabForInfoComponent
-
+    TabForInfoComponent,
+    PictureModalComponent,
+    CreateProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +46,19 @@ import { CommonModule } from '@angular/common'
     CommonModule,
     ReactiveFormsModule,
     NgbModule,
-    LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR})
+    MatStepperModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatListModule,
+    LoggerModule.forRoot({
+      serverLoggingUrl: '/api/logs',
+      level: NgxLoggerLevel.DEBUG,
+      serverLogLevel: NgxLoggerLevel.ERROR,
+    }),
+    BrowserAnimationsModule,
   ],
   providers: [PersonServiceResolve],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

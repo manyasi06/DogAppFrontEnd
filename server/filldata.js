@@ -416,6 +416,7 @@ const fillPersons = ()=>{
       id: i,
       firstname: fake.name.firstName(),
       lastname: fake.name.lastName(),
+      picture: fake.image.imageUrl(),
       dogs: [Datadogs[i]]
     })
   }
