@@ -1,5 +1,5 @@
+import { FormBuilder } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CreateProfileComponent } from './create-profile.component';
 
 describe('CreateProfileComponent', () => {
@@ -8,7 +8,10 @@ describe('CreateProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateProfileComponent ]
+      declarations: [ CreateProfileComponent ],
+      providers:[
+        FormBuilder
+      ]
     })
     .compileComponents();
   }));

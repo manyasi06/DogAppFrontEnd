@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PictureModalComponent implements OnInit {
 
-  private img: string
+  private img: string;
   constructor(private dPS: DummyPersonsService) { }
 
   ngOnInit(): void {
