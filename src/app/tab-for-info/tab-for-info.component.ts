@@ -1,4 +1,8 @@
+import { Dogs } from './../models/Dogs';
+import { DummyPersonsService } from './../services/dummy-persons.service';
 import { Component, OnInit } from '@angular/core';
+
+
 
 
 
@@ -9,9 +13,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabForInfoComponent implements OnInit {
   active = 1;
-  constructor() { }
+
+  friendsList: Dogs[] = [];
+  constructor(
+    private dogFriends: DummyPersonsService,
+  ) { }
 
   ngOnInit(): void {
+    this.dogFriends.getAllFriends().subscribe(
+      resp =>{
+        this.friendsList = resp;
+      }
+    )
+
   }
 
 }

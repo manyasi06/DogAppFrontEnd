@@ -1,11 +1,12 @@
 
-const fake  = require('../node_modules/faker');
+const fake = require('../node_modules/faker');
 const { data } = require('jquery');
 const { random } = require('core-js/fn/number');
 // var dogbreedlist = require('../server/DogBreedMasterList')
 
 const database = {
-  persons: []
+  persons: [],
+  friends: []
 };
 
 const Datadogs = []
@@ -388,30 +389,28 @@ dogBreedList = [
 
 
 
-function myRandomBreed(){
-  var index =Math.random() * (370 - 0) + 0;
- return dogBreedList[Math.floor(index)];
+function myRandomBreed() {
+  var index = Math.random() * (370 - 0) + 0;
+  return dogBreedList[Math.floor(index)];
 }
 
 
-const fillDogs =  async ()=>{
+const fillDogs = async () => {
   //create list of dogs
-for(let i = 1; i < 1000; i++){
- // console.log(i);
-  //console.log(myRandomBreed())
-  Datadogs.push({
-    id: i,
-    breed: myRandomBreed(),
-    nameofdog: fake.name.firstName()
-  })
-}
+  for (let i = 1; i < 1000; i++) {
+    Datadogs.push({
+      id: i,
+      breed: myRandomBreed(),
+      nameofdog: fake.name.firstName()
+    })
+  }
 }
 
 
 
 
-const fillPersons = ()=>{
-  for( let i = 1; i <= 150; i++){
+const fillPersons = () => {
+  for (let i = 1; i <= 150; i++) {
     database.persons.push({
       id: i,
       firstname: fake.name.firstName(),
@@ -420,6 +419,12 @@ const fillPersons = ()=>{
       dogs: [Datadogs[i]]
     })
   }
+
+  for (let i = 0; i < 20; i++){
+      database.friends.push(
+        Datadogs[i]
+      )
+    }
 
 
   console.log(JSON.stringify(database));

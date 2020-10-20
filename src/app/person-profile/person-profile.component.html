@@ -1,29 +1,37 @@
 <div class="container" id="profile_border">
-  <div class="row">
-    <div class="col-4 align-self-start" style="outline-style: outset;">
-      <img src="../../assets/images/GiantSchnauzerImage.jfif" alt="" />
-      <h1 *ngIf="personInfoDog">{{ personInfoDog.nameofdog }}</h1>
-    </div>
-    <div class="col-8 align-self-center">
-      Parks Visited
-    </div>
-  </div>
+
+   <mat-grid-list cols="4" >
+     <mat-grid-tile [colspan]="1">
+      <mat-card class="dog_profile_card">
+        <mat-card-header>
+          <mat-card-title *ngIf="personInfoDog">Dog Name: {{personInfoDog.nameofdog}}</mat-card-title>
+        <img mat-card-avatar src="../../assets/images/GiantSchnauzerImage.jfif" alt="" />
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="../../assets/images/GiantSchnauzerImage.jfif" alt="" />
+        <mat-card-content>
+          Funny dog
+        </mat-card-content>
+      </mat-card>
+     </mat-grid-tile>
+     <mat-grid-tile [colspan]="3" >
+
+      <mat-card>
+        <div>Hello</div>
+        <div>Hello</div>
+        <div>Hello</div>
+        <div>Hello</div>
+      </mat-card>
+     </mat-grid-tile>
+
+
+
+   </mat-grid-list>
+
+
   <div class="row">
     <div class="col-sm-4 bg-primary">
       <app-tab-for-info></app-tab-for-info>
-    </div>
-    <div class="col-sm-4 align-self-center">
-      <ul>
-        <h2>Friend List: </h2>
-
-        <ng-container id="friendlist" *ngFor="let val of friendListofDogs ; let i=index">
-          <li *ngIf="i<11">
-            Owner: {{val.firstname}} {{val.lastname}}
-          </li>
-        </ng-container>
-
-
-      </ul>
     </div>
   </div>
 </div>

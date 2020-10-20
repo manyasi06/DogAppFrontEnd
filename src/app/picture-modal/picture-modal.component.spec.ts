@@ -1,15 +1,15 @@
-import { DummyPersonsService } from "./../services/dummy-persons.service";
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { DummyPersonsService } from './../services/dummy-persons.service';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PictureModalComponent } from "./picture-modal.component";
+import { PictureModalComponent } from './picture-modal.component';
 
-describe("PictureModalComponent", () => {
+describe('PictureModalComponent', () => {
   let component: PictureModalComponent;
   let fixture: ComponentFixture<PictureModalComponent>;
   let mockService: DummyPersonsService;
 
   beforeEach(async(() => {
-    mockService = jasmine.createSpyObj([""]);
+    mockService = jasmine.createSpyObj(['']);
     TestBed.configureTestingModule({
       declarations: [PictureModalComponent],
       providers: [{ provide: DummyPersonsService, useValue: mockService }],
@@ -22,7 +22,7 @@ describe("PictureModalComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

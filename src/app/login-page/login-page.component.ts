@@ -2,7 +2,7 @@ import {
   FormControl,
   FormGroup,
   FormBuilder,
-  Validators
+  Validators,
 } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 
@@ -14,6 +14,9 @@ import { Component, OnInit } from "@angular/core";
 export class LoginPageComponent implements OnInit {
   myForm: FormGroup;
   username = new FormControl("", Validators.required);
+
+
+
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
       username: this.username,
@@ -21,7 +24,7 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit(): void {
     console.log(this.myForm);

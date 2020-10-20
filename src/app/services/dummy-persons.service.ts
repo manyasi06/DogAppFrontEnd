@@ -1,8 +1,9 @@
 import { Person } from './../models/Person';
-import { Observable, throwError } from 'rxjs';
+import { Observable, ObservableLike, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { retry, catchError } from 'rxjs/operators';
+import { Dogs } from '../models/Dogs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,15 @@ export class DummyPersonsService {
   };
 
   url: string = "http://localhost:3000/persons/"
+  urlfriend: string = "http://localhost:3000/friends/"
   constructor(private http: HttpClient) { }
 
   getAll():Observable<Array<Person>>{
    return this.http.get<Array<Person>>(this.url).pipe(retry(2),catchError(this.handleError));
+  }
+
+  getAllFriends():Observable<Array<Dogs>>{
+    return this.http.get<Array<Dogs>>(this.urlfriend).pipe(retry(2),catchError(this.handleError));
   }
 
 

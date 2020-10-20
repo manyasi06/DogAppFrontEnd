@@ -24,6 +24,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +56,10 @@ import {MatListModule} from '@angular/material/list';
     MatToolbarModule,
     MatButtonModule,
     MatListModule,
+    MatInputModule,
+    MatTabsModule,
+    MatCardModule,
+    MatGridListModule,
     LoggerModule.forRoot({
       serverLoggingUrl: '/api/logs',
       level: NgxLoggerLevel.DEBUG,

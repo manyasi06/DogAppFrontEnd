@@ -1,3 +1,11 @@
 #profile_border{
-  border-style: solid;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
 }
+
+
+/* .dog_profile_card{
+  max-width: 400px;
+} */
+

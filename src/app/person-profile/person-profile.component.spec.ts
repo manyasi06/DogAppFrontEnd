@@ -141,29 +141,4 @@ describe("PersonProfileComponent", () => {
 
 
 
-  it("The name of the first user should be Tomasa", ()=>{
-    pending();
-  })
-
-
-  it("Should be a true component", () => {
-    expect(component).toBeTruthy();
-  });
-
-  // it("Should have a list that is displayed in the DOM",fakeAsync(()=>{
-
-  //   component.personInfo = PersonStub[0];
-  //   component.personInfoDog = PersonStub[0].dogs[0];
-  //   expect(component.personInfo.dogs).toBeTruthy();
-  //   component.friendListofDogs = PersonStub;
-  //   console.log(component.friendListofDogs)
-  //   expect(component.friendListofDogs).toBeTruthy();
-  //   component.ngOnInit();
-  //   tick(5000);
-  //  fixture.detectChanges();
-
-  // }));
-
-
-
 });

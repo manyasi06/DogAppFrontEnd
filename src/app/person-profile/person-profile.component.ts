@@ -28,30 +28,15 @@ export class PersonProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.personInfo = this.route.snapshot.data['person'];
     this.dogFriends.getById(3).subscribe((val: Person) => {
       this.personInfo$ = val;
 
       this.personInfoDog = this.personInfo$.dogs[0];
-      //console.log(this.personInfo$.dogs[0]);
     });
 
-    // this.route.data.subscribe(
-    //   (data: Data) => {
-    //     this.personInfo = data['person'];
-    //   }
-    //)
-    this.getFriends();
   }
 
-  getFriends(){
-        this.dogFriends.getAll().subscribe( (resp)=>{
-          resp.forEach((val)=>{
-           this.friendListofDogs.push(val);
-          })
-       })
 
-  }
 
 
 }

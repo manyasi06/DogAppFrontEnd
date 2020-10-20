@@ -1,34 +1,30 @@
+<div class="container space-around" id="div-one">
+  <div class="row">
+    <div class="col-sm" id="form-id">
+      <h3>Login Form</h3>
 
 
-  <div class="container space-around" id="div-one">
-    <div class="row">
-      <div class="col-sm" id="form-id">
-          <h3>Login Form</h3>
-          <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="email"
-                id="username"
-                name="username"
-                 formControlName="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password"
-                 id="password"
-                 name="password"
-                  formControlName="password">
-            </div>
-            <button mat-raised-button color="primary">Submit</button>
-            <button mat-raised-button color="accent">Create Account</button>
-          </form>
+      <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+        <label>Username: </label>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input type="email" id="username" name="username" formControlName="username" matInput>
+        </mat-form-field>
+        <br>
 
-      </div>
+        <label for="password">Password: </label>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" id="password" name="password" formControlName="password" matInput>
+        </mat-form-field>
 
-      </div>
+        <br>
+
+        <button mat-raised-button color="primary">Submit</button>
+        <button mat-raised-button color="accent">Create Account</button>
+      </form>
+
     </div>
 
-
-
-
-
+  </div>
+</div>
