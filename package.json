@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "filldata": "node ./server/filldata.js > ./server/data.json",
-    "server": "json-server --watch ./server/data.json"
+    "server": "json-server --watch ./server/data.json --port 3004"
   },
   "private": true,
   "dependencies": {

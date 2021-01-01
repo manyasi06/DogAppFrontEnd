@@ -21,4 +21,5 @@ RUN npm install -g @angular/cli@10.0.0
 COPY . /app
 
 # start app
+CMD json-server --watch ./server/data.json
 CMD ng serve --host 0.0.0.0

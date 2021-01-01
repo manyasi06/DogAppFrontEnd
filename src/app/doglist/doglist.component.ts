@@ -1,9 +1,8 @@
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { Dogs } from './../models/Dogs';
+import { Dogs } from '../models/Person';
 import { Component, OnInit, ViewChild, TemplateRef, Input } from '@angular/core';
 import { DogsService } from '../services/dogs.service';
-import { error } from 'protractor';
 
 
 
@@ -18,58 +17,59 @@ export class DoglistComponent implements OnInit {
   public listofDogs: Dogs[];
   public closeResult = ' ';
   contentProfileForm: FormGroup;
-  @ViewChild('editProf',{static: false})
+  @ViewChild('editProf', {static: false})
     defCtPfForm: TemplateRef<any>;
   @Input('id') id: number;
-  @Input('breed') breed:string;
-  @Input('nameofdog') nameofdog:string;
+  @Input('breed') breed: string;
+  @Input('nameofdog') nameofdog: string;
   @Input('ownerfirstname') ownerfirstname: string;
   @Input('ownerlastname') ownerlastname: string;
-  public updatDog : Dogs;
+  public updatDog: Dogs;
   public testVal: string;
 
 
 
-  constructor(private fb: FormBuilder,private dogServ: DogsService, private modalService: NgbModal) { }
+  constructor(private fb: FormBuilder, private dogServ: DogsService, private modalService: NgbModal) { }
 
   ngOnInit() {
       this.dogServ.getAllDogs().subscribe(
-        (data: Dogs[])=>{
+        (data: Dogs[]) => {
           console.log(data);
           this.listofDogs = data;
         },
-        (error: Error)=>{
-          console.log("An error occurred");
+        (error: Error) => {
+          console.log('An error occurred');
           console.log(error.message);
         }
-      )
+      );
 
       this.contentProfileForm = this.fb.group({
         breed: [''],
-        nameofdog: ['']
-      })
+        nameofdog: [''],
+        personId: [-1]
+      });
 
       this.updatDog = {
         id: -1,
         breed: '',
         nameofdog: ''
-      }
+      };
 
 
   }
 
 
-  deleteDog(id: number): void{
-    console.log("This current id: " + id);
+  deleteDog(id: number): void {
+    console.log('This current id: ' + id);
     const item = this.listofDogs.find( x => x.id === id);
-    console.log("This is the index: " + item);
+    console.log('This is the index: ' + item);
     this.dogServ.deleteDog(id).subscribe(
-      (response: any)=>{
+      (response: any) => {
       console.log(response);
-     },(error: Error)=>{
-       console.log("Error during deletion: " + error.message);
+     }, (error: Error) => {
+       console.log('Error during deletion: ' + error.message);
      }
-    )
+    );
     this.listofDogs.splice(this.listofDogs.indexOf(item), 1);
   }
 
@@ -82,14 +82,13 @@ export class DoglistComponent implements OnInit {
     });
   }
 
-  openForEdit(item: Dogs){
+  openForEdit(item: Dogs) {
     console.log(item);
     this.id = item.id;
     this.breed = item.breed;
     this.nameofdog = item.nameofdog;
 
 
-    console.log("My id: " + this.id)
 
 
 
@@ -97,14 +96,14 @@ export class DoglistComponent implements OnInit {
       {ariaLabelledBy: 'modal-basic-title'}
       ).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
-      console.log(this.updatDog)
+      console.log(this.updatDog);
       this.updatDog.id = this.id;
       this.updatDog.breed = this.breed;
       this.updatDog.nameofdog = this.nameofdog;
-      console.log("My payload: " + JSON.stringify(this.updatDog));
-      this.dogServ.editDog(this.updatDog).subscribe((response: any)=>{
+      console.log('My payload: ' + JSON.stringify(this.updatDog));
+      this.dogServ.editDog(this.updatDog).subscribe((response: any) => {
           console.log(response);
-      },(error: any)=>{console.log(error)});
+      }, (error: any) => {console.log(error); });
 
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

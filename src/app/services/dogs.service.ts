@@ -32,7 +32,7 @@ export class DogsService {
         'Content-Type': 'application/json'
       }),
       body:{
-        id: id
+        id
       },
       responseType: 'text' as 'json',
       observe: "response" as 'body'
@@ -41,6 +41,7 @@ export class DogsService {
   }
 
   editDog(someDog: Dogs): any{
+    console.log(someDog);
     return this.http.put<any>(this.url,someDog);
   }
 
